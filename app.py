@@ -1,6 +1,11 @@
-from flask import Flask, request
+from flask import Flask, request, g
+from flask import Flask
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
 import random
 import os
+import time
+
+FlaskInstrumentor().instrument_app(app)
 
 app = Flask(__name__)
 
