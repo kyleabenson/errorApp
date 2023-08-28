@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: errorapp-deployment
+  labels:
+    app: errorapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: errorapp
+  template:
+    metadata:
+      labels:
+        app: errorapp
+    spec:
+      containers:
+      - name: errorapp
+        image: us-west1-docker.pkg.dev/kb-workspace/kb-image-repo/errorapp:v1
